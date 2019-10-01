@@ -1,5 +1,5 @@
 {
-  "name": "fsjs-e2e-route-model-quiz",
+  "name": "class-12",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,12 +10,12 @@
     "lint": "eslint .",
     "pretest": "npm run lint",
     "jest": "jest --runInBand",
-    "test": "npm run jest",
-    "test:coverage": "npm run test -- --coverage",
+    "test": "npm run jest -- --coverage",
     "test:watch": "npm run jest -- --watchAll",
     "test:verbose": "npm run test -- --verbose",
     "start": "node server.js",
-    "start:watch": "nodemon server.js"
+    "start:watch": "nodemon server.js",
+    "load:cats": "mongoimport --db famous-cats --collection cats --drop --jsonArray --file ./data/cats.json"
   },
   "keywords": [],
   "author": "",

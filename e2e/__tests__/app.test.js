@@ -1,7 +1,8 @@
 const request = require('../request');
 
 describe('core app api', () => {
-  it('is alive', () => {
+  it
+  ('is alive', () => {
     return request
       .get('/hello')
       .expect(200)
@@ -10,7 +11,7 @@ describe('core app api', () => {
       });
   });
 
-  it('returns 404 on non-api bad path', () => {
+  it.skip('returns 404 on non-api bad path', () => {
     return request
       .get('/bad-path')
       .expect(404)
