@@ -8,7 +8,12 @@ describe('tours api', () => {
   });
   const tour = {
     title: 'Sun Country',
-    activites: ['sleeping', 'swimming']
+    activites: ['sleeping', 'swimming'],
+    stops: [
+      {
+        attendance: 2
+      }
+    ]
   };
 
   it('posts a tour', () => {
@@ -33,7 +38,12 @@ describe('tours api', () => {
               "swimming",
             ],
             "launchDate": StringMatching /\\^\\(-\\?\\(\\?:\\[1-9\\]\\[0-9\\]\\*\\)\\?\\[0-9\\]\\{4\\}\\)-\\(1\\[0-2\\]\\|0\\[1-9\\]\\)-\\(3\\[01\\]\\|0\\[1-9\\]\\|\\[12\\]\\[0-9\\]\\)T\\(2\\[0-3\\]\\|\\[01\\]\\[0-9\\]\\):\\(\\[0-5\\]\\[0-9\\]\\):\\(\\[0-5\\]\\[0-9\\]\\)\\(\\\\\\\\\\.\\[0-9\\]\\+\\)\\?\\(Z\\)\\?/i,
-            "stops": Array [],
+            "stops": Array [
+              Object {
+                "_id": "5d942dfd0cb4fc2f740cf732",
+                "attendance": 2,
+              },
+            ],
             "title": "Sun Country",
           }
         `
