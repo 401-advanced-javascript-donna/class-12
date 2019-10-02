@@ -137,4 +137,44 @@ describe('tours api', () => {
         );
       });
   });
+
+  it('deletes a stop ', () => {
+    return postTour(tour1).then(tour => {
+      return request
+        .post(`/api/tours/${tour._id}/stops`)
+        .send(location1)
+        .expect(200)
+        .then(out => {
+          const stops = out.body[1];
+          return request
+            .delete(`/api/tours/${tour._id}/stops/${stops._id}`)
+            .send(tour._id, stops._id)
+            .expect(200);
+        });
+    });
+  });
+
+  const attend1 = {
+    attendance: 500
+  };
+
+  it('updates attendance', () => {
+    return postTour(tour1).then(tour => {
+      return request 
+        .post(`/api/tours/${tour._id}/stops`)
+        .send(location1)
+        .expect(200)
+        .then(out => {
+          const stops = out.body[0];
+          return request
+            .put(`/api/tours/${tour._id}/stops/${stops._id}/attendance`)
+            .send(attend1)
+            .expect(200)
+            .then(({ body }) => {
+              expect(body[0].attendance).toBe(500);
+            });
+        });
+
+    });
+  });
 });
